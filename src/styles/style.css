@@ -1,0 +1,39 @@
+.component-container {
+  background-color: dodgerblue;
+  width: 400px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px auto;
+}
+
+input {
+  width: 60%;
+  height: 24px;
+  margin: 20px 0;
+  padding: 10px 20px;
+}
+
+button {
+  width: 100px;
+  height: 35px;
+  border-radius: 3px;
+}
+
+.text-container {
+  height: 80px;
+  width: 80%;
+  margin-bottom: 10px;
+  border-bottom: 2px solid black;
+}
+
+p {
+  margin-top: 50px;
+}
+
+.underline {
+  width: 80%;
+  height: 2px;
+  background-color: black;
+}
