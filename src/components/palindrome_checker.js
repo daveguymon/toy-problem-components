@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './../styles/style.css';
+import ReusableInput from './reusable_input';
 
 export default class PalindromeChecker extends Component {
   constructor(props){
@@ -11,7 +12,7 @@ export default class PalindromeChecker extends Component {
       })
   }
 
-  onInputChange(event) {
+  handleInputChange(event) {
     this.setState({
       input: event.target.value
     })
@@ -36,8 +37,12 @@ export default class PalindromeChecker extends Component {
     return (
       <div className="component-container">
         <h1>Palindrome Checker</h1>
-        <input placeholder="Enter text string here." value={this.state.input} onChange={this.onInputChange.bind(this)}/>
-        <button onClick={() => this.checkForPalindrome(inputString)}>Submit</button>
+        <ReusableInput
+          text="Enter word here."
+          input={this.state.input}
+          handleInputChange={this.handleInputChange.bind(this)}
+          />
+          <button onClick={() => this.checkForPalindrome(inputString)}>Submit</button>
         <div className="text-container">
           <p>{!this.state.word ? null : this.state.palindrome && this.state.word ? `${this.state.word} is a palindrome!` : `${this.state.word} is not a palindrome.`}</p>
         </div>

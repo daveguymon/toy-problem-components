@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReusableInput from './reusable_input';
 
 export default class SumFinder extends Component {
   constructor(props) {
@@ -7,10 +8,12 @@ export default class SumFinder extends Component {
       input: '',
       sum: null
     }
+
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
 
-  onInputChange(event) {
+  handleInputChange(event) {
     this.setState({ input: event.target.value });
   }
 
@@ -20,14 +23,17 @@ export default class SumFinder extends Component {
   }
 
   render() {
-
     let input = this.state.input;
 
     return (
       <div className="component-container">
         <h1>Sum Finder</h1>
-        <input placeholder="Enter string of numbers (ex. 12345)" onChange={ this.onInputChange.bind(this) } value={this.state.input}/>
-        <button onClick={this.state.input ? () => this.findSum(input) : null}>Calculate</button>
+        <ReusableInput
+          text="Enter string of numbers (ex. 12345)"
+          input={this.state.input}
+          handleInputChange={this.handleInputChange}
+          />
+        <button onClick={this.state.input ? () => this.findSum(input) : () => console.log("suck it!")}>Calculate</button>
         <div className="text-container">
           <p>{this.state.sum}</p>
         </div>
