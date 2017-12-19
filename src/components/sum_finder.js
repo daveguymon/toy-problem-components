@@ -32,8 +32,9 @@ export default class SumFinder extends Component {
           text="Enter string of numbers (ex. 12345)"
           input={this.state.input}
           handleInputChange={this.handleInputChange}
+          btnLabel="Calculate"
+          handleClick={this.state.input ? () => this.findSum(input) : () => console.log("suck it!")}
           />
-        <button onClick={this.state.input ? () => this.findSum(input) : () => console.log("suck it!")}>Calculate</button>
         <div className="text-container">
           <p>{this.state.sum}</p>
         </div>

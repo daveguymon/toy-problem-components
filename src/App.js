@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import PalindromeChecker from './components/palindrome_checker';
 import SumFinder from './components/sum_finder';
+import EvenOrOdd from './components/even_or_odd';
 
 class App extends Component {
 
@@ -15,6 +16,7 @@ class App extends Component {
         </header>
         <PalindromeChecker />
         <SumFinder />
+        <EvenOrOdd />
       </div>
     );
   }

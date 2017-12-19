@@ -10,6 +10,8 @@ export default class PalindromeChecker extends Component {
         word: '',
         palindrome: false
       })
+
+      this.checkForPalindrome = this.checkForPalindrome.bind(this);
   }
 
   handleInputChange(event) {
@@ -32,7 +34,7 @@ export default class PalindromeChecker extends Component {
 
   render() {
 
-    let inputString = this.state.input
+    let text = this.state.input
 
     return (
       <div className="component-container">
@@ -41,12 +43,12 @@ export default class PalindromeChecker extends Component {
           text="Enter word here."
           input={this.state.input}
           handleInputChange={this.handleInputChange.bind(this)}
+          btnLabel="Submit"
+          handleClick={this.checkForPalindrome.bind(this, text)}
           />
-          <button onClick={() => this.checkForPalindrome(inputString)}>Submit</button>
-        <div className="text-container">
+          <div className="text-container">
           <p>{!this.state.word ? null : this.state.palindrome && this.state.word ? `${this.state.word} is a palindrome!` : `${this.state.word} is not a palindrome.`}</p>
-        </div>
-        {this.state.palindrome}
+          </div>
       </div>
     )
   }
